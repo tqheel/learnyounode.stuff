@@ -6,11 +6,11 @@ var ext = process.argv[3];
 function getFileListing(){
 	fs.readdir(path.normalize(dir), function(err, list){
 		if(!err){
-			outputResults(function(list){
-				return list.filter(function(element, index, array){
-					return (path.extname(element) == '.' + ext);
-				});
+			var fileArray = [];
+			fileArray = list.filter(function(element, index, array){
+					return (path.extname(element) === '.' + ext);
 			});
+			outputResults(fileArray);
 		}
 		else{
 			console.log('There was an error: ' + err);
@@ -20,6 +20,8 @@ function getFileListing(){
 
 function outputResults(results){
 	results.forEach(function(element, index){
-		console.log(element + '\\n');
+		console.log(element );
 	});
 }
+
+getFileListing();
