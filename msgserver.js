@@ -24,7 +24,7 @@ var server = net.createServer(function(socket){
 	
 });
 var port = 1337;
-var host = '127.0.0.1';
+var host = '192.168.1.4';
 server.listen(port,host);
 
 console.log('Server listening on '+ host+':'+port);
